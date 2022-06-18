@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=Krita/PythonPlugin
+X-KDE-Library=apply-mask
+X-Python-2-Compatible=false
+X-Krita-Manual=Manual.html
+Name= Apply Mask
+Comment= adds a new action to apply a mask to a layer (in a hacky way)

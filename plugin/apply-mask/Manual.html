@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Apply Mask</title>
+</head>
+<body>
+<h3>Apply Mask</h3>
+<p> 
+Adds a new action in the layer menu for applying masks and layer styles to layers, in a very hacky way, but it works.
+</p>
+
+<p>
+Right now there is no way to actually apply masks in krita, all you can do is flatten the layer and the masks and layer styles are "applied" to it.
+However using flatten layer has one problem, if you have a layer that has lower opacity, this lower opacity will become the full opacity of the layer.
+Which is not expected when wanting to apply a mask. 
+</p>
+
+<p>
+This plugin avoids this behavior by doing a series of steps:
+1. saves the original opacity of the layer
+2. change the layer opacity to 100%
+3. flattens the layer using the krita action
+4. changes the opacity back to what it was
+
+Which would be the same steps to avoid this behavior if done manually.
+</p>
+
+<h3>Usage</h3>
+<p>
+You can select the layer or one of the masks go to layers>"Apply masks to current layer".
+you can also set a shortcut to it in the shortcut menu (if you copied the action file to the resource folder)
+</p>
+
+</body>
+</html>
