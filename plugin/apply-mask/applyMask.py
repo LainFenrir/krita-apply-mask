@@ -17,7 +17,6 @@
 """
 
 # For autocomplete
-import time
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .PyKrita import *
@@ -55,10 +54,8 @@ class ApplyMask(Extension):
         originalOP = currentLayer.opacity()
         currentLayer.setOpacity(255)
         application.action('flatten_layer').trigger()
-        # the sleep is necessary otherwise the flatten layer is executed in parallel with the next instructions
-        # probably an async process. since the sleep is fixed, any flatten that takes longer than it will mess up the next instructions
-        # but i cant do anything about it cause flatten is only an action and i didnt find any signal that is sent when its over.
-        time.sleep(1)
+        currentDoc.waitForDone()
+        
 
         # when the layer is merged, the string merged is added at the end of it, unless the layer already has it at the end
         # this avoids errors when the layer was already merged. also seems needed to look for the the merged name
